@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, useScroll, useReducedMotion } from "motion/react";
+import ThemeToggle from "./ThemeToggle";
 
 /**
  * Sticky top nav. Stays out of the way over the hero (the signature first
@@ -58,22 +59,25 @@ export default function Nav() {
         >
           Jordan
         </a>
-        <ul className="flex items-center gap-4 overflow-x-auto whitespace-nowrap font-mono text-micro uppercase sm:gap-6">
-          {SECTIONS.map(({ id, label }) => (
-            <li key={id}>
-              <a
-                href={`#${id}`}
-                className={
-                  active === id
-                    ? "text-forest-floor"
-                    : "text-bark-brown transition-colors hover:text-botanical-ink"
-                }
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <ul className="flex items-center gap-4 overflow-x-auto whitespace-nowrap font-mono text-micro uppercase sm:gap-6">
+            {SECTIONS.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={
+                    active === id
+                      ? "text-forest-floor"
+                      : "text-bark-brown transition-colors hover:text-botanical-ink"
+                  }
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
       {/* Scroll progress */}
       <motion.div

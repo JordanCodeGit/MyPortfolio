@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
+/* Class-based dark mode: `dark:` utilities apply under <html class="dark">. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  /* Palette — Adaline "botanical journal" system (do not add colors outside this) */
+  /* Palette — Adaline "botanical journal" system (DAY values; night overrides
+     live in the .dark block below, so most components re-theme automatically). */
   --color-cream-paper: #fbfdf6;   /* page canvas, cards, text on dark fills */
   --color-botanical-ink: #0a1d08; /* headings, body, ghost-button borders, nav */
   --color-bark-brown: #31200b;    /* secondary text, decorative depth */
@@ -12,6 +16,10 @@
   --color-moss-veil: #d7e8b5;     /* tag/badge fill only (small areas) */
   --color-eucalyptus: #c5ccb6;    /* surface level 3, decorative borders */
   --color-onyx: #000000;          /* logo mark, icon strokes */
+
+  /* Fixed tones that must NOT flip with the theme (footer + CTA always dark) */
+  --color-ink-fixed: #0a1d08;
+  --color-paper-fixed: #fbfdf6;
 
   --shadow-subtle: rgba(99, 143, 61, 0.1) 0 0 0 1px;
 
@@ -38,11 +46,65 @@
 @layer base {
   :root {
     color-scheme: light;
+
+    /* Scene tokens — the painted park reads from these (NOT the UI palette), so
+       night colours don't fight the UI accents. DAY values: */
+    --scene-sky-top: #eff2e8;
+    --scene-sky-bottom: #fbfdf6;
+    --scene-mist: #fbfdf6;
+    --scene-hill-far: #c5ccb6;
+    --scene-hill-mid: #203b14;
+    --scene-lake-top: #e0e5d5;
+    --scene-lake-bottom: #eff2e8;
+    --scene-reflection: #fbfdf6;
+    --scene-object: #0a1d08;   /* trees */
+    --scene-object-2: #31200b; /* bench, small tree */
+    --scene-bush: #203b14;
+    --scene-grass: #203b14;
+    --scene-bird: #31200b;
+    --scene-lamp-glow: #d7e8b5;
+    --scene-lamp-bulb: #d7e8b5;
+    --scene-moon: transparent; /* hidden by day */
+    --scene-firefly: transparent;
+  }
+
+  /* ---------------- NIGHT THEME ---------------- */
+  .dark {
+    color-scheme: dark;
+
+    /* UI palette → night */
+    --color-cream-paper: #0e1712;   /* page / card / nav canvas */
+    --color-botanical-ink: #e8efe1; /* primary text, ghost border */
+    --color-bark-brown: #aab69a;    /* secondary text */
+    --color-warm-loam: #7a5526;     /* CTA (slightly brighter) */
+    --color-forest-floor: #a3d178;  /* accent: links, dots, progress, hover */
+    --color-sage-mist: #16211b;     /* surface bands */
+    --color-lichen: #2c3a30;        /* borders */
+    --color-moss-veil: #2f4a22;     /* tag fill */
+    --color-eucalyptus: #6e7b66;
+
+    /* Scene → moonlit night park */
+    --scene-sky-top: #070d1c;
+    --scene-sky-bottom: #16223c;
+    --scene-mist: #1b2742;
+    --scene-hill-far: #141f33;
+    --scene-hill-mid: #0b1322;
+    --scene-lake-top: #1b2c47;
+    --scene-lake-bottom: #0c1626;
+    --scene-reflection: #aebfd6;
+    --scene-object: #05080f;
+    --scene-object-2: #080d16;
+    --scene-bush: #0a1320;
+    --scene-grass: #16243a;
+    --scene-bird: #2a3a52;
+    --scene-lamp-glow: #ffd98a;
+    --scene-lamp-bulb: #ffe9b8;
+    --scene-moon: #f1f4e8;
+    --scene-firefly: #ffe9a8;
   }
 
   html {
     scroll-behavior: smooth;
-    /* keep jump-link targets clear of the fixed nav */
     scroll-padding-top: 5rem;
   }
 
@@ -50,19 +112,17 @@
     background-color: var(--color-cream-paper);
     color: var(--color-botanical-ink);
     font-family: var(--font-sans);
-    /* Signature tight tracking on all Inter text, every size */
     letter-spacing: -0.04em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
-  /* Mono / micro-labels: positive tracking, only via this utility */
   .font-mono {
     font-family: var(--font-mono);
     letter-spacing: 0.02em;
   }
 
-  /* Visible keyboard focus on every interactive element */
   :focus-visible {
     outline: 2px solid var(--color-forest-floor);
     outline-offset: 3px;

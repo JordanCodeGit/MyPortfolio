@@ -27,20 +27,20 @@ export default function HeroText({
 
       <p className="mt-5 text-[1.375rem] leading-snug text-bark-brown">
         {identity.name}
-        <span className="text-eucalyptus"> · </span>
+        <span className="text-bark-brown/50"> · </span>
         {identity.status}
       </p>
 
       <p className="mt-2 font-mono text-micro uppercase text-bark-brown">
         {identity.gpa}
-        <span className="text-eucalyptus"> · </span>
+        <span className="text-bark-brown/50"> · </span>
         {identity.title}
       </p>
 
       <div className={`${rowJustify} mt-8 flex flex-wrap items-center gap-4`}>
         <a
           href="#work"
-          className="rounded-[20px] bg-warm-loam px-7 py-3 text-body-sm text-cream-paper transition-colors hover:bg-forest-floor"
+          className="rounded-[20px] bg-warm-loam px-7 py-3 text-body-sm text-[var(--color-paper-fixed)] transition-colors hover:bg-forest-floor"
         >
           View the work
         </a>

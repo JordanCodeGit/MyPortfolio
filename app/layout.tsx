@@ -22,12 +22,22 @@ export const metadata: Metadata = {
     "Jordan Angkawijaya is a Computer Science student and junior Project Manager who ships AI products — from VLM digital ledgers to NLP cognitive-training platforms.",
 };
 
+// Set the theme before paint to avoid a flash of the wrong mode.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fragmentMono.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${fragmentMono.variable}`}
+    >
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {children}
+      </body>
     </html>
   );
 }
