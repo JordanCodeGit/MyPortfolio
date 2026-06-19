@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — Adaline "botanical journal" system (do not add colors outside this) */
+  --color-cream-paper: #fbfdf6;   /* page canvas, cards, text on dark fills */
+  --color-botanical-ink: #0a1d08; /* headings, body, ghost-button borders, nav */
+  --color-bark-brown: #31200b;    /* secondary text, decorative depth */
+  --color-warm-loam: #4a3212;     /* THE single CTA fill, nothing else */
+  --color-forest-floor: #203b14;  /* CTA hover, tag/divider outline accent */
+  --color-sage-mist: #eff2e8;     /* surface level 1, section banding */
+  --color-lichen: #e0e5d5;        /* surface level 2, hairline dividers */
+  --color-moss-veil: #d7e8b5;     /* tag/badge fill only (small areas) */
+  --color-eucalyptus: #c5ccb6;    /* surface level 3, decorative borders */
+  --color-onyx: #000000;          /* logo mark, icon strokes */
+
+  --shadow-subtle: rgba(99, 143, 61, 0.1) 0 0 0 1px;
+
+  /* Fonts — wired to next/font CSS variables (see layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fragment-mono), ui-monospace, monospace;
+
+  /* Type scale */
+  --text-display: clamp(2.5rem, 6vw, 4.5rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.045em;
+
+  --text-heading: clamp(2rem, 3.5vw, 2.5rem);
+  --text-heading--line-height: 1.05;
+
+  --text-body: 1.125rem; /* 18px */
+  --text-body--line-height: 1.55;
+  --text-body--letter-spacing: -0.02em;
+
+  --text-body-sm: 0.875rem; /* 14px */
+  --text-micro: 0.8125rem;  /* 13px */
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* keep jump-link targets clear of the fixed nav */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-cream-paper);
+    color: var(--color-botanical-ink);
+    font-family: var(--font-sans);
+    /* Signature tight tracking on all Inter text, every size */
+    letter-spacing: -0.04em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Mono / micro-labels: positive tracking, only via this utility */
+  .font-mono {
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+
+  /* Visible keyboard focus on every interactive element */
+  :focus-visible {
+    outline: 2px solid var(--color-forest-floor);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
