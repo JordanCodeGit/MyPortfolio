@@ -67,31 +67,37 @@ export const achievementList: Achievement[] = [
     title: "Mahasiswa Berprestasi (Outstanding Student)",
     issuer: "Telkom University",
     year: "2026",
+    href: "https://www.instagram.com/p/DW1N7Dfk8sa/",
   },
   {
     title: "International Gold Medal — ISIF (Education Category)",
     issuer: "IYSA",
     year: "2025",
+    href: "https://drive.google.com/file/d/1zEGuWYKMa52jlghgn1kAQtbwGmobzfXy/view?usp=sharing",
   },
   {
     title: "2nd International Winner, Innovation Proposal",
     issuer: "ISC · Brawijaya University",
     year: "2025",
+    href: "https://drive.google.com/file/d/1T46MycOyk5hk84n51BejtWUcDZETOYWN/view?usp=sharing",
   },
   {
     title: "Best Presentation, Global Project-Based Learning",
     issuer: "SUT · Thailand",
     year: "2025",
+    href: "https://drive.google.com/file/d/1lIGrHVC7SOdCXzqtBI914nhCFnXYYnNf/view?usp=sharing",
   },
   {
     title: "2nd National Winner, National Debate Competition",
     issuer: "Universitas Negeri Padang",
     year: "2024",
+    href: "https://drive.google.com/file/d/1KkxUoWjf9rhlJHJHCH59b2w66i1Bp7Ub/view?usp=sharing",
   },
   {
     title: "1st National Winner, OSPN (English Field)",
     issuer: "Pateron Indonesia",
     year: "2023",
+    href: "https://drive.google.com/file/d/1SOFqvFVl0iEBRifUFZS-6HJHTMnq-vMu/view?usp=sharing",
   },
 ];
 
@@ -100,6 +106,7 @@ export const certifications: Achievement[] = [
     title: "Microsoft Azure AI Fundamentals",
     issuer: "Microsoft",
     year: "2025",
+    href: "https://drive.google.com/file/d/1zoN2pNo7aNn8CJhE4Rgoqj_Uj3gerXDT/view?usp=sharing",
   },
   {
     title: "AWS Academy Cloud Foundations",
@@ -110,11 +117,13 @@ export const certifications: Achievement[] = [
     title: "PCAP — Programming Essentials in Python",
     issuer: "Cisco · OpenEDG Python Institute",
     year: "2022",
+    href: "https://drive.google.com/file/d/1iiwkKKLoyTz97E3ORxb54BRVdOpwxkcX/view?usp=sharing",
   },
   {
     title: "TOEIC 900",
     issuer: "International Test Center",
     year: "2022",
+    href: "https://drive.google.com/file/d/11m7qC5rwvdyJy9aumQXlksKnSzMrxMkB/view?usp=sharing",
   },
   {
     title: "Registered IPR — UEMKASolve · LogiCheck · CFlix",

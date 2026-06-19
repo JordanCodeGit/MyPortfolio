@@ -83,20 +83,22 @@
     --color-moss-veil: #2f4a22;     /* tag fill */
     --color-eucalyptus: #6e7b66;
 
-    /* Scene → moonlit night park */
-    --scene-sky-top: #070d1c;
-    --scene-sky-bottom: #16223c;
-    --scene-mist: #1b2742;
-    --scene-hill-far: #141f33;
-    --scene-hill-mid: #0b1322;
-    --scene-lake-top: #1b2c47;
-    --scene-lake-bottom: #0c1626;
-    --scene-reflection: #aebfd6;
-    --scene-object: #05080f;
-    --scene-object-2: #080d16;
-    --scene-bush: #0a1320;
-    --scene-grass: #16243a;
-    --scene-bird: #2a3a52;
+    /* Scene → moonlit night park. Deep teal-GREEN (not blue) so the hero flows
+       into the green night sections below; warm moon/lamp/fireflies as accents.
+       Sky bottom ≈ the section colour for a seamless hand-off. */
+    --scene-sky-top: #06120e;
+    --scene-sky-bottom: #16241d;
+    --scene-mist: #21362c;
+    --scene-hill-far: #132219;
+    --scene-hill-mid: #0a1610;
+    --scene-lake-top: #15302a;
+    --scene-lake-bottom: #0b1812;
+    --scene-reflection: #bcd0c2;
+    --scene-object: #05090a;
+    --scene-object-2: #080f0c;
+    --scene-bush: #0a1610;
+    --scene-grass: #16281f;
+    --scene-bird: #2c4438;
     --scene-lamp-glow: #ffd98a;
     --scene-lamp-bulb: #ffe9b8;
     --scene-moon: #f1f4e8;
