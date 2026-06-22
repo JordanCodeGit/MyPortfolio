@@ -21,7 +21,7 @@ export const identity = {
   role: "Junior Project Manager",
   status: "Computer Science · Telkom University",
   gpa: "GPA 3.99 / 4.00",
-  title: "Outstanding Student of Telkom University (Mahasiswa Berprestasi), 2026",
+  title: "Outstanding Student (Pilmapres) — 3rd Place, 2026",
   cv: "/cv.pdf",
   photo: {
     src: "/jordan.png",
@@ -72,8 +72,8 @@ export const featuredAchievements: Achievement[] = [
     href: "https://drive.google.com/file/d/1zEGuWYKMa52jlghgn1kAQtbwGmobzfXy/view?usp=sharing",
   },
   {
-    title: "Mahasiswa Berprestasi (Outstanding Student)",
-    issuer: "Telkom University",
+    title: "3rd Place — Outstanding Student (Pilmapres), Undergraduate",
+    issuer: "Telkom University National Campus",
     year: "2026",
     href: "https://purwokerto.telkomuniversity.ac.id/membanggakan-2-mahasiswa-telkom-university-raih-pilmapres-2026/",
   },
