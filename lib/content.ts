@@ -72,11 +72,10 @@ export const featuredAchievements: Achievement[] = [
     href: "https://drive.google.com/file/d/1zEGuWYKMa52jlghgn1kAQtbwGmobzfXy/view?usp=sharing",
   },
   {
-    // NOTE: Instagram link removed — it's login-walled for logged-out visitors.
-    // Replace with a formal certificate URL when available.
     title: "Mahasiswa Berprestasi (Outstanding Student)",
     issuer: "Telkom University",
     year: "2026",
+    href: "https://purwokerto.telkomuniversity.ac.id/membanggakan-2-mahasiswa-telkom-university-raih-pilmapres-2026/",
   },
   {
     title: "2nd International Winner, Innovation Proposal",
