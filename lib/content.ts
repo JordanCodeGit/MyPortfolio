@@ -124,6 +124,7 @@ export const certifications: Achievement[] = [
     title: "AWS Academy Cloud Foundations",
     issuer: "Amazon Web Services",
     year: "2025",
+    href: "https://drive.google.com/file/d/1ssHZ1hxCKH0spuj4WZOJzsnkVfrsaV_J/view?usp=sharing",
   },
   {
     title: "PCAP — Programming Essentials in Python",
