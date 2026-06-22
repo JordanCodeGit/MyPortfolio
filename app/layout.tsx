@@ -17,7 +17,7 @@ const fragmentMono = Fragment_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jordan | Portfolio",
+  title: "Jordan Angkawijaya — Junior PM · AI / NLP / Computer Vision",
   description:
     "Jordan Angkawijaya is a Computer Science student and junior Project Manager who ships AI products — from VLM digital ledgers to NLP cognitive-training platforms.",
 };

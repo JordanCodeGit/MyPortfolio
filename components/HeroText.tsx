@@ -1,10 +1,10 @@
 import { identity } from "@/lib/content";
 
 /**
- * Role-first hero copy. The role is the highlight (a recruiter learns *what you
- * are* in one glance); the name, field, GPA and award sit quietly beneath it.
- * Deliberately few words — the hero rewards a 30-second scan. Shared by the
- * static split hero and the full-bleed park hero. `align="left"` from md up.
+ * Hero copy. The value-proposition leads as the H1 (the most memorable thing on
+ * the page); the role sits in the mono eyebrow, and the name / field / GPA / award
+ * sit quietly beneath. Deliberately few words — the hero rewards a 30-second scan.
+ * Shared by the static split hero and the full-bleed park hero.
  */
 export default function HeroText({
   align = "center",
@@ -18,14 +18,20 @@ export default function HeroText({
   return (
     <div className={textAlign}>
       <p className="font-mono text-micro uppercase text-bark-brown">
+        {identity.role}
+        <span className="text-bark-brown/50"> · </span>
         {identity.eyebrow}
       </p>
 
-      <h1 className="mt-4 text-[clamp(2.5rem,5vw,4rem)] font-normal leading-[1.02] text-botanical-ink">
-        {identity.role}
+      <h1
+        className={`mt-4 max-w-[16ch] text-[clamp(2.25rem,4.6vw,3.75rem)] font-normal leading-[1.05] text-botanical-ink text-balance ${
+          left ? "mx-auto md:mx-0" : "mx-auto"
+        }`}
+      >
+        {identity.headline}
       </h1>
 
-      <p className="mt-5 text-[1.375rem] leading-snug text-bark-brown">
+      <p className="mt-5 text-[1.25rem] leading-snug text-bark-brown">
         {identity.name}
         <span className="text-bark-brown/50"> · </span>
         {identity.status}

@@ -157,19 +157,24 @@ export default function LandscapeScene({
         <path d="M1120 788 l 0 -16 M1126 788 l 4 -16 M1114 788 l -4 -14" />
       </g>
 
-      {/* WIND-SHAPED TREES (canopies sway when ambient) */}
-      <rect x="1338" y="470" width="10" height="200" rx="5" fill="var(--scene-object)" />
-      <motion.path
-        d="M1343 470 C 1300 452, 1270 470, 1242 458 C 1290 476, 1260 500, 1220 496 C 1280 514, 1250 540, 1216 540 C 1300 556, 1360 520, 1390 470 C 1376 446, 1360 452, 1343 470 Z"
-        fill="var(--scene-object)"
-        {...sway("1343px 470px", 2.5, 6)}
-      />
-      <rect x="214" y="540" width="8" height="150" rx="4" fill="var(--scene-object-2)" />
-      <motion.path
-        d="M218 540 C 188 528, 168 540, 150 532 C 184 546, 164 564, 138 562 C 186 580, 232 556, 252 524 C 242 508, 230 514, 218 540 Z"
-        fill="var(--scene-object-2)"
-        {...sway("218px 540px", 3, 5, 0.8)}
-      />
+      {/* TREES — rounded leafy canopies (clusters of ellipses) that sway when
+          ambient. The crown is grouped so it sways from the trunk top. */}
+      {/* right tree, near the portrait */}
+      <rect x="1340" y="430" width="9" height="245" rx="4" fill="var(--scene-object)" />
+      <motion.g fill="var(--scene-object)" {...sway("1344px 440px", 2.2, 6)}>
+        <ellipse cx="1344" cy="425" rx="58" ry="50" />
+        <ellipse cx="1308" cy="446" rx="36" ry="32" />
+        <ellipse cx="1382" cy="444" rx="38" ry="34" />
+        <ellipse cx="1344" cy="402" rx="40" ry="36" />
+      </motion.g>
+      {/* left tree, smaller */}
+      <rect x="214" y="512" width="8" height="178" rx="4" fill="var(--scene-object-2)" />
+      <motion.g fill="var(--scene-object-2)" {...sway("218px 520px", 2.6, 5, 0.8)}>
+        <ellipse cx="218" cy="508" rx="44" ry="38" />
+        <ellipse cx="190" cy="524" rx="28" ry="24" />
+        <ellipse cx="248" cy="522" rx="30" ry="26" />
+        <ellipse cx="218" cy="490" rx="30" ry="27" />
+      </motion.g>
 
       {/* FIREFLIES (night only — token transparent by day) */}
       {ambient && (

@@ -16,12 +16,13 @@ export type Project = {
 export const identity = {
   name: "Jordan Angkawijaya",
   eyebrow: "AI / NLP / Computer Vision / Web",
-  // Role-first hero: the role is the headline, identity sits beneath it.
+  // Value-prop leads the hero (H1); the role is demoted to the eyebrow.
+  headline: "I turn research-grade AI into products teams can ship.",
   role: "Junior Project Manager",
   status: "Computer Science · Telkom University",
   gpa: "GPA 3.99 / 4.00",
-  title: "Mahasiswa Berprestasi Telkom University 2026",
-  cv: "https://drive.google.com/file/d/1iSo7IlSleH1G_LrxH1tq6GLOnj0ttu6U/view?usp=sharing",
+  title: "Outstanding Student of Telkom University (Mahasiswa Berprestasi), 2026",
+  cv: "/cv.pdf",
   photo: {
     src: "/jordan.png",
     width: 843,
@@ -62,13 +63,8 @@ export type Achievement = {
 };
 
 // Curated for the PM role: international recognition, communication, leadership.
-export const achievementList: Achievement[] = [
-  {
-    title: "Mahasiswa Berprestasi (Outstanding Student)",
-    issuer: "Telkom University",
-    year: "2026",
-    href: "https://www.instagram.com/p/DW1N7Dfk8sa/",
-  },
+// Lead tier — the strongest, most role-relevant signals (shown larger).
+export const featuredAchievements: Achievement[] = [
   {
     title: "International Gold Medal — ISIF (Education Category)",
     issuer: "IYSA",
@@ -76,11 +72,27 @@ export const achievementList: Achievement[] = [
     href: "https://drive.google.com/file/d/1zEGuWYKMa52jlghgn1kAQtbwGmobzfXy/view?usp=sharing",
   },
   {
+    // NOTE: Instagram link removed — it's login-walled for logged-out visitors.
+    // Replace with a formal certificate URL when available.
+    title: "Mahasiswa Berprestasi (Outstanding Student)",
+    issuer: "Telkom University",
+    year: "2026",
+  },
+  {
     title: "2nd International Winner, Innovation Proposal",
     issuer: "ISC · Brawijaya University",
     year: "2025",
     href: "https://drive.google.com/file/d/1T46MycOyk5hk84n51BejtWUcDZETOYWN/view?usp=sharing",
   },
+  {
+    title: "Registered IPR — UEMKASolve · LogiCheck",
+    issuer: "Directorate General of Intellectual Property",
+    year: "2023",
+  },
+];
+
+// Secondary tier — strong but less role-central (shown compact).
+export const moreAchievements: Achievement[] = [
   {
     title: "Best Presentation, Global Project-Based Learning",
     issuer: "SUT · Thailand",
@@ -124,11 +136,6 @@ export const certifications: Achievement[] = [
     issuer: "International Test Center",
     year: "2022",
     href: "https://drive.google.com/file/d/11m7qC5rwvdyJy9aumQXlksKnSzMrxMkB/view?usp=sharing",
-  },
-  {
-    title: "Registered IPR — UEMKASolve · LogiCheck · CFlix",
-    issuer: "Directorate General of Intellectual Property",
-    year: "2023",
   },
 ];
 
