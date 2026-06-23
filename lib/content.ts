@@ -193,7 +193,7 @@ export const roles: Role[] = [
     location: "Purwokerto",
     kind: "Project Management",
     summary:
-      "Shadowing a Senior PM across the active lifecycle of two client software projects — observing how Jira and Trello workflows turn 30+ milestones into sprint deliverables.",
+      "Supported a Senior PM across two active client software projects, tracking 30+ milestones through Jira and Trello sprint workflows.",
   },
   {
     role: "Hospitality Coordinator",
@@ -202,7 +202,7 @@ export const roles: Role[] = [
     location: "Indonesia",
     kind: "Leadership · Operations",
     summary:
-      "Scaled the operations team from 3 to 8 to support VIP delegations across a 7-day annual international exchange.",
+      "Scaled the operations team from 3 to 8 by recruiting and onboarding volunteers, enabling VIP-delegation support across a 7-day international exchange.",
   },
   {
     role: "Vice President",
@@ -211,7 +211,7 @@ export const roles: Role[] = [
     location: "Indonesia",
     kind: "Leadership",
     summary:
-      "Ran a 52-member academic incubator and managed a QA review pipeline that advanced 47 grant proposals into a national pool.",
+      "Advanced 47 grant proposals into a national selection pool by running a QA review pipeline across a 52-member academic incubator.",
   },
   {
     role: "Full-Stack Web Developer Intern",
@@ -220,7 +220,7 @@ export const roles: Role[] = [
     location: "Yogyakarta",
     kind: "Engineering · Pre-university",
     summary:
-      "Built a JWT-secured single-page app with automated password-expiry controls, and deployed a MySQL database and RESTful API for internal users.",
+      "Built and deployed a JWT-secured single-page app with automated password-expiry controls, plus a MySQL database and RESTful API serving internal users.",
   },
 ];
 
@@ -254,11 +254,18 @@ export const projects: Project[] = [
       "Students increasingly offload thinking to AI, weakening the reasoning skills the tools were meant to support.",
     decisions: [
       "Framed the product as cognitive training rather than a tutor, so it builds reasoning instead of replacing it.",
-      "Used NLP to score the quality of a student's own reasoning, keeping the human in the loop by design.",
+      "Used an LLM (Gemini API) to score the quality of a student's own reasoning, keeping the human in the loop by design.",
     ],
     outcome:
       "International Gold Medal at ISIF 2025, plus academic sponsorship and registered IPR.",
-    stack: ["Python", "NLP"],
+    stack: [
+      "JavaScript",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Browser Extension",
+    ],
     image: "/logicheck.png",
     imageAlt: "LogiCheck landing page screenshot.",
     liveUrl: "https://logi-check.vercel.app/",

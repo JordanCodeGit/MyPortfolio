@@ -22,8 +22,10 @@ export const metadata: Metadata = {
     "Jordan Angkawijaya is a Computer Science student and junior Project Manager who ships AI products — from VLM digital ledgers to NLP cognitive-training platforms.",
 };
 
-// Set the theme before paint to avoid a flash of the wrong mode.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+// Before paint: set the theme (no flash) and flag entrance animations on — but
+// only when reduced-motion is NOT requested, so reduced users get the final state
+// instantly with no flash of hidden content.
+const themeScript = `(function(){try{var e=document.documentElement;var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)e.classList.add('dark');if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)e.setAttribute('data-anim','on');}catch(err){}})();`;
 
 export default function RootLayout({
   children,

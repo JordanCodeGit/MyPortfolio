@@ -15,7 +15,7 @@ export default function HeroPhoto({ className = "" }: { className?: string }) {
       height={identity.photo.height}
       priority
       sizes="(max-width: 768px) 16rem, 40vw"
-      className={`object-contain ${className}`}
+      className={`figure-graded object-contain ${className}`}
     />
   );
 }

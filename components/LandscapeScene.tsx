@@ -59,17 +59,28 @@ export default function LandscapeScene({
           <stop offset="100%" stopColor="var(--scene-lamp-glow)" stopOpacity="0" />
         </radialGradient>
         <radialGradient id="ls-moon" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="var(--scene-moon)" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="var(--scene-moon)" stopOpacity="0" />
+          <stop offset="0%" stopColor="#dfe7ea" stopOpacity="0.5" />
+          <stop offset="100%" stopColor="#dfe7ea" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="ls-sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#ffd98a" stopOpacity="0.7" />
+          <stop offset="55%" stopColor="#ffd98a" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#ffd98a" stopOpacity="0" />
         </radialGradient>
       </defs>
 
       {/* SKY */}
       <rect x="0" y="0" width="1440" height="800" fill="url(#ls-sky)" />
 
-      {/* MOON (night only — token transparent by day) */}
-      <ellipse cx="1180" cy="150" rx="150" ry="150" fill="url(#ls-moon)" />
-      <circle cx="1180" cy="150" r="46" fill="var(--scene-moon)" />
+      {/* SUN (day) + MOON (night) — same position, cross-fade on theme toggle */}
+      <g className="scene-celestial" style={{ opacity: "var(--sun-opacity)" }}>
+        <ellipse cx="1180" cy="150" rx="185" ry="185" fill="url(#ls-sun)" />
+        <circle cx="1180" cy="150" r="50" fill="#ffe7a6" />
+      </g>
+      <g className="scene-celestial" style={{ opacity: "var(--moon-opacity)" }}>
+        <ellipse cx="1180" cy="150" rx="150" ry="150" fill="url(#ls-moon)" />
+        <circle cx="1180" cy="150" r="46" fill="#eef2ea" />
+      </g>
 
       <ellipse cx="760" cy="320" rx="560" ry="150" fill="url(#ls-mist)" opacity="0.7" />
 

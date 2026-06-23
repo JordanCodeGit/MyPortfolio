@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useScroll, useReducedMotion } from "motion/react";
+import { motion, useScroll } from "motion/react";
 import ThemeToggle from "./ThemeToggle";
 
 /**
- * Sticky top nav. Stays out of the way over the hero (the signature first
- * impression), then reveals once you scroll past it. Provides: name -> top,
- * jump links to each section, a scroll-progress line, and active-section
- * highlighting. Scroll-linked progress only — no scroll-jacking.
+ * Sticky top nav. Desktop shows inline section links; mobile collapses them into
+ * a hamburger dropdown. The theme toggle stays OUTSIDE the menu, persistently
+ * visible at every breakpoint (always one tap away). Scroll-progress line +
+ * active-section highlight. No horizontal overflow.
  */
 
 const SECTIONS = [
@@ -21,8 +21,8 @@ const SECTIONS = [
 
 export default function Nav() {
   const { scrollYProgress } = useScroll();
-  const prefersReduced = useReducedMotion();
   const [active, setActive] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Track the section currently in view.
   useEffect(() => {
@@ -43,15 +43,18 @@ export default function Nav() {
 
   const toTop = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: prefersReduced ? "auto" : "smooth",
-    });
+    setMenuOpen(false);
+    window.scrollTo({ top: 0 });
   };
+
+  const linkClass = (id: string) =>
+    active === id
+      ? "text-forest-floor"
+      : "text-bark-brown transition-colors hover:text-botanical-ink";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-lichen bg-cream-paper/95">
-      <nav className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-6 py-3">
+      <nav className="mx-auto flex max-w-[1200px] items-center justify-between gap-3 px-6 py-3">
         <a
           href="#"
           onClick={toTop}
@@ -59,26 +62,64 @@ export default function Nav() {
         >
           Jordan
         </a>
-        <div className="flex items-center gap-4 sm:gap-6">
-          <ul className="flex items-center gap-4 overflow-x-auto whitespace-nowrap font-mono text-micro uppercase sm:gap-6">
+
+        <div className="flex items-center gap-3 sm:gap-6">
+          {/* Desktop links */}
+          <ul className="hidden items-center gap-6 font-mono text-micro uppercase sm:flex">
+            {SECTIONS.map(({ id, label }) => (
+              <li key={id}>
+                <a href={`#${id}`} className={linkClass(id)}>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Theme toggle — persistent at all breakpoints, outside the menu */}
+          <ThemeToggle />
+
+          {/* Hamburger — mobile only */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-lichen text-botanical-ink transition-colors hover:bg-sage-mist sm:hidden"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              {menuOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M3 6h18M3 12h18M3 18h18" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div
+          id="mobile-menu"
+          className="border-t border-lichen bg-cream-paper/95 sm:hidden"
+        >
+          <ul className="mx-auto flex max-w-[1200px] flex-col px-6 py-2 font-mono text-micro uppercase">
             {SECTIONS.map(({ id, label }) => (
               <li key={id}>
                 <a
                   href={`#${id}`}
-                  className={
-                    active === id
-                      ? "text-forest-floor"
-                      : "text-bark-brown transition-colors hover:text-botanical-ink"
-                  }
+                  onClick={() => setMenuOpen(false)}
+                  className={`block py-3 ${linkClass(id)}`}
                 >
                   {label}
                 </a>
               </li>
             ))}
           </ul>
-          <ThemeToggle />
         </div>
-      </nav>
+      )}
+
       {/* Scroll progress */}
       <motion.div
         style={{ scaleX: scrollYProgress }}

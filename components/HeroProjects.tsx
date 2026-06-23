@@ -116,7 +116,12 @@ export default function HeroProjects() {
             }}
             className="absolute inset-0 z-0"
           >
-            <LandscapeScene preserveAspectRatio="xMidYMax slice" ambient />
+            <div
+              className="anim-pop h-full w-full"
+              style={{ "--anim-delay": "200ms" } as React.CSSProperties}
+            >
+              <LandscapeScene preserveAspectRatio="xMidYMax slice" ambient />
+            </div>
           </motion.div>
 
           {/* Copy + portrait, composed in the park; leaves early on scroll */}
@@ -138,7 +143,22 @@ export default function HeroProjects() {
                 <HeroText align="left" />
               </div>
               <div className="flex h-full items-end justify-start">
-                <HeroPhoto className="h-[82vh] max-h-[780px] w-auto max-w-[42vw]" />
+                <div
+                  className="anim-pop relative"
+                  style={{ "--anim-delay": "400ms" } as React.CSSProperties}
+                >
+                  {/* backlight glow so the figure emerges from the scene */}
+                  <div
+                    aria-hidden="true"
+                    className="figure-glow pointer-events-none absolute left-1/2 top-[8%] h-[74%] w-[130%] -translate-x-1/2 rounded-full blur-2xl"
+                  />
+                  {/* grounding shadow at the feet, on the scene's ground line */}
+                  <div
+                    aria-hidden="true"
+                    className="figure-shadow pointer-events-none absolute -bottom-2 left-1/2 h-[26px] w-[80%] -translate-x-1/2 rounded-[50%] blur-md"
+                  />
+                  <HeroPhoto className="relative h-[82vh] max-h-[780px] w-auto max-w-[42vw]" />
+                </div>
               </div>
             </div>
           </motion.div>
