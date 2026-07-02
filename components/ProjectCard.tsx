@@ -93,7 +93,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-forest-floor underline underline-offset-2 transition-colors hover:text-botanical-ink"
+                  className="inline-flex min-h-[44px] items-center text-forest-floor underline underline-offset-2 transition-colors hover:text-botanical-ink"
                 >
                   Live site ↗
                 </a>
@@ -103,7 +103,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                   href={project.iprUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-forest-floor underline underline-offset-2 transition-colors hover:text-botanical-ink"
+                  className="inline-flex min-h-[44px] items-center text-forest-floor underline underline-offset-2 transition-colors hover:text-botanical-ink"
                 >
                   Registered IPR ↗
                 </a>

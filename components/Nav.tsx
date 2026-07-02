@@ -58,7 +58,7 @@ export default function Nav() {
         <a
           href="#"
           onClick={toTop}
-          className="text-body-sm font-bold tracking-tight text-botanical-ink"
+          className="inline-flex min-h-[44px] items-center text-body-sm font-bold tracking-tight text-botanical-ink"
         >
           Jordan
         </a>
@@ -85,7 +85,7 @@ export default function Nav() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-lichen text-botanical-ink transition-colors hover:bg-sage-mist sm:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-lichen text-botanical-ink transition-colors hover:bg-sage-mist sm:hidden"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               {menuOpen ? (
@@ -110,7 +110,7 @@ export default function Nav() {
                 <a
                   href={`#${id}`}
                   onClick={() => setMenuOpen(false)}
-                  className={`block py-3 ${linkClass(id)}`}
+                  className={`flex min-h-[44px] items-center ${linkClass(id)}`}
                 >
                   {label}
                 </a>

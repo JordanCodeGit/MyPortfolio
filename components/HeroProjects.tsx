@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   motion,
+  useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useTransform,
@@ -64,6 +65,15 @@ export default function HeroProjects() {
   // hand-off into Projects is seamless.
   const curtainOpacity = useTransform(scrollYProgress, [0.32, 0.52], [0, 1]);
 
+  // Idle the ambient hero animations (leaves, fireflies, sway) once the hero has
+  // scrolled away — no CPU/battery cost when they're not visible. Only re-renders
+  // when crossing the threshold.
+  const [ambientOn, setAmbientOn] = useState(true);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const on = v < 0.6;
+    setAmbientOn((prev) => (prev === on ? prev : on));
+  });
+
   const useStatic = mounted && (prefersReduced || isMobile);
 
   // ---------------------------------------------------------------------------
@@ -74,18 +84,9 @@ export default function HeroProjects() {
       <>
         <section className="relative flex min-h-screen flex-col bg-cream-paper">
           <div className="relative z-10 flex flex-1 items-center py-20">
-            {prefersReduced ? (
-              <Hero />
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="w-full"
-              >
-                <Hero />
-              </motion.div>
-            )}
+            {/* Entrance is handled by the CSS anim-rise in HeroText (which never
+                gates the photo), so the LCP image paints immediately. */}
+            <Hero />
           </div>
           {/* Landscape as a flow band under the hero — no overlap with content */}
           <div className="pointer-events-none relative z-0 h-[32vh] w-full">
@@ -118,9 +119,12 @@ export default function HeroProjects() {
           >
             <div
               className="anim-pop h-full w-full"
-              style={{ "--anim-delay": "200ms" } as React.CSSProperties}
+              style={{ "--anim-delay": "150ms" } as React.CSSProperties}
             >
-              <LandscapeScene preserveAspectRatio="xMidYMax slice" ambient />
+              <LandscapeScene
+                preserveAspectRatio="xMidYMax slice"
+                ambient={ambientOn}
+              />
             </div>
           </motion.div>
 
@@ -145,7 +149,7 @@ export default function HeroProjects() {
               <div className="flex h-full items-end justify-start">
                 <div
                   className="anim-pop relative"
-                  style={{ "--anim-delay": "400ms" } as React.CSSProperties}
+                  style={{ "--anim-delay": "250ms" } as React.CSSProperties}
                 >
                   {/* backlight glow so the figure emerges from the scene */}
                   <div
@@ -168,7 +172,7 @@ export default function HeroProjects() {
             style={{ opacity: heroOpacity }}
             className="pointer-events-none absolute inset-0 z-30"
           >
-            <FallingLeaves />
+            <FallingLeaves play={ambientOn} />
           </motion.div>
 
           {/* Resolve into the Projects section colour as the scene recedes */}

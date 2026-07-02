@@ -36,9 +36,10 @@ function Leaf({ size, color }: { size: number; color: string }) {
   );
 }
 
-export default function FallingLeaves() {
+export default function FallingLeaves({ play = true }: { play?: boolean }) {
   const prefersReduced = useReducedMotion();
-  if (prefersReduced) return null;
+  // Skip entirely under reduced motion, or when the hero has scrolled off-screen.
+  if (prefersReduced || !play) return null;
 
   return (
     <div

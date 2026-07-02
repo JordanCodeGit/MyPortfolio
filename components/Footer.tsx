@@ -38,7 +38,7 @@ export default function Footer() {
                 <li key={id}>
                   <a
                     href={`#${id}`}
-                    className="underline-offset-2 transition-opacity hover:opacity-70"
+                    className="inline-flex min-h-[44px] items-center underline-offset-2 transition-opacity hover:opacity-70"
                   >
                     {label}
                   </a>
@@ -52,7 +52,7 @@ export default function Footer() {
           <span>© 2026 {identity.name} · Built with Next.js, deployed on Vercel</span>
           <a
             href="#"
-            className="text-[var(--color-paper-fixed)] underline-offset-2 transition-opacity hover:opacity-70"
+            className="inline-flex min-h-[44px] items-center text-[var(--color-paper-fixed)] underline-offset-2 transition-opacity hover:opacity-70"
           >
             Back to top ↑
           </a>

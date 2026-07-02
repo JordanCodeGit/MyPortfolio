@@ -33,7 +33,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={dark ? "Switch to day" : "Switch to night"}
       title={dark ? "Switch to day" : "Switch to night"}
-      className="flex h-8 w-8 items-center justify-center rounded-full border border-lichen text-botanical-ink transition-colors hover:bg-sage-mist"
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-lichen text-botanical-ink transition-colors hover:bg-sage-mist"
     >
       {/* Render the icon only after mount so it matches the resolved theme */}
       {mounted && (dark ? <SunIcon /> : <MoonIcon />)}
