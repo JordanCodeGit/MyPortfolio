@@ -86,10 +86,7 @@ export default function Achievements() {
     <section id="achievements" className="bg-sage-mist px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-[1100px]">
         <Reveal>
-          <p className="font-mono text-micro uppercase text-bark-brown">
-            {achievements.eyebrow}
-          </p>
-          <h2 className="mt-4 text-heading font-normal text-botanical-ink text-balance">
+          <h2 className="text-heading font-normal text-botanical-ink text-balance">
             {achievements.heading}
           </h2>
         </Reveal>

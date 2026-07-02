@@ -10,10 +10,7 @@ export default function Contact() {
     <section id="contact" className="bg-sage-mist px-6 py-24">
       <div className="mx-auto max-w-[1100px]">
         <Reveal>
-          <p className="font-mono text-micro uppercase text-bark-brown">
-            {contact.eyebrow}
-          </p>
-          <h2 className="mt-4 max-w-2xl text-heading font-normal text-botanical-ink text-balance">
+          <h2 className="max-w-2xl text-heading font-normal text-botanical-ink text-balance">
             {contact.heading}
           </h2>
           <p className="mt-5 max-w-prose text-body text-bark-brown text-pretty">

@@ -10,10 +10,7 @@ export default function Skills() {
     <section id="skills" className="bg-cream-paper px-6 py-16 sm:py-20">
       <div className="mx-auto max-w-[1100px]">
         <Reveal>
-          <p className="font-mono text-micro uppercase text-bark-brown">
-            {skills.eyebrow}
-          </p>
-          <h2 className="mt-4 text-heading font-normal text-botanical-ink">
+          <h2 className="text-heading font-normal text-botanical-ink">
             {skills.heading}
           </h2>
         </Reveal>

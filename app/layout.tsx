@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Fragment_Mono } from "next/font/google";
+import { Hanken_Grotesk, Fragment_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+// Neo-grotesque in the Akkurat lineage — precise and crafted, not the Inter default.
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-inter",
+  weight: ["400", "500", "700"],
+  variable: "--font-hanken",
   display: "swap",
 });
 
@@ -34,7 +35,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${fragmentMono.variable}`}
+      className={`${hanken.variable} ${fragmentMono.variable}`}
     >
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
